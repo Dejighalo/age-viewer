@@ -26,7 +26,8 @@ import { connect, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo, faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
-  VerticalLine, HorizontalLine, SubLabelLeft, SubLabelRight, GraphSelectDropdown,
+  // VerticalLine, HorizontalLine,
+  SubLabelLeft, SubLabelRight, GraphSelectDropdown,
 } from './SidebarComponents';
 
 const genLabelQuery = (eleType, labelName, database) => {
@@ -390,21 +391,21 @@ const SidebarHome = ({
           <br />
           <NodeList nodes={nodes} setCommand={setCommand} />
         </div>
-        <VerticalLine />
+        {/* <VerticalLine /> */}
         <div className="form-group sidebar-item">
           <b>Edge Label</b>
           <br />
           <EdgeList edges={edges} setCommand={setCommand} />
         </div>
-        <VerticalLine />
+        {/* <VerticalLine /> */}
         <div className="form-group sidebar-item">
           <b>Properties</b>
           <br />
           <PropertyList propertyKeys={propertyKeys} setCommand={setCommand} />
         </div>
-        <div id="lastHorizontalLine">
+        {/* <div id="lastHorizontalLine">
           <VerticalLine />
-        </div>
+        </div> */}
         { isLabel && (
           <>
             <div className="form-group sidebar-item">
@@ -417,9 +418,9 @@ const SidebarHome = ({
                 changeGraph={changeGraph}
               />
             </div>
-            <div id="lastHorizontalLine">
+            {/* <div id="lastHorizontalLine">
               <VerticalLine />
-            </div>
+            </div> */}
           </>
         ) }
       </div>
@@ -439,9 +440,8 @@ const SidebarHome = ({
               />
             </button>
             <br />
-            <b>Refresh</b>
+            Refresh
           </div>
-          <HorizontalLine />
           <div className="sidebar-item-disconnect-buttons">
             <button
               className="frame-head-button close_session btn btn-link"
@@ -464,11 +464,10 @@ const SidebarHome = ({
               />
             </button>
             <br />
-            <b>Close Session</b>
+            Close Session
           </div>
           { !isLabel && (
             <>
-              <HorizontalLine />
               <div className="sidebar-item-disconnect-buttons">
                 <GraphSelectDropdown
                   currentGraph={currentGraph}

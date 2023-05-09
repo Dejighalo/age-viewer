@@ -22,11 +22,11 @@ import { useDispatch } from 'react-redux';
 import uuid from 'react-uuid';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle, faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import store from '../../../app/store';
 import AlertContainers from '../../alert/containers/AlertContainers';
 import CodeMirror from '../../editor/containers/CodeMirrorWapperContainer';
-import SideBarToggle from '../../editor/containers/SideBarMenuToggleContainer';
+// import SideBarToggle from '../../editor/containers/SideBarMenuToggleContainer';
 import { setting } from '../../../conf/config';
 import IconPlay from '../../../icons/IconPlay';
 import { getMetaData } from '../../../features/database/MetadataSlice';
@@ -46,7 +46,7 @@ const Editor = ({
   addCommandHistory,
   toggleMenu,
   setLabel,
-  isLabel,
+  // isLabel,
   // addCommandFavorites,
 }) => {
   const dispatch = useDispatch();
@@ -143,16 +143,16 @@ const Editor = ({
     <div className="container-fluid">
       <div className="editor">
         <div className="container-fluid editor-area card-header">
-          <div className="input-group input-style">
+          <div className="input-style input-bar">
 
-            <div id="codeMirrorEditor" className="form-control col-11 editor-code-wrapper">
+            <div id="codeMirrorEditor" className="form-control col-12 editor-code-wrapper">
               <CodeMirror
                 onClick={onClick}
                 value={command}
                 onChange={setCommand}
               />
             </div>
-            <div className="input-group-append ml-auto editor-button-wrapper" id="editor-buttons">
+            <div className="editor-button-wrapper" id="editor-buttons">
               {/* <button className="frame-head-button btn btn-link"
                type="button" onClick={() => favoritesCommand()}>
                 <FontAwesomeIcon
@@ -167,15 +167,17 @@ const Editor = ({
                 />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="frame-head-button play"
                 type="button"
                 onClick={() => onClick()}
                 title="Run Query"
               >
+                Run
+
                 <IconPlay />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="frame-head-button"
                 type="button"
                 onClick={() => {
                   toggleMenu('home');
@@ -191,18 +193,16 @@ const Editor = ({
                 }}
                 title={(isActive) ? 'Hide' : 'Show'}
               >
-                <SideBarToggle isActive={isActive} />
+                {/* <SideBarToggle isActive={isActive} /> */}
+                { (isActive) ? 'Hide' : 'Show'}
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="frame-head-button"
                 type="button"
                 onClick={() => setLabel()}
-                title="Run Query"
+                title="Toggle graphs"
               >
-                <FontAwesomeIcon
-                  icon={isLabel ? faToggleOn : faToggleOff}
-                  size="2x"
-                />
+                Toggle Graphs
               </button>
             </div>
           </div>
@@ -238,7 +238,7 @@ Editor.propTypes = {
   toggleMenu: PropTypes.func.isRequired,
   update: PropTypes.bool.isRequired,
   setLabel: PropTypes.func.isRequired,
-  isLabel: PropTypes.bool.isRequired,
+  // isLabel: PropTypes.bool.isRequired,
   // addCommandFavorites: PropTypes.func.isRequired,
 };
 

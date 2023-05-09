@@ -80,7 +80,8 @@ const ServerConnectFrame = ({
           <h3>Connect to Database</h3>
           <p>Database access might require an authenticated connection.</p>
         </Col>
-        <Col span={18}>
+        <Col span={2} />
+        <Col span={16}>
           <div className={styles.FrameWrapper}>
             <Form
               initialValues={FormInitialValue}

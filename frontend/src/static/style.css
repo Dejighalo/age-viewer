@@ -17,10 +17,12 @@
  * under the License.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400&display=swap');
+
  :root {
     /* Light Mode */
     --light-text: #222430;
-    --light-bg: #ffffff;
+    --light-bg: #F5F8FA;
     --light-theme: #d34a97;
     --light-navbar: #343a40;
     --light-sidebar: #747474;
@@ -67,9 +69,11 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     /* padding-top: 90px; */
     overflow: hidden;
+    letter-spacing: -3%;
+    background: #F5F8FA;
 }
 
 
@@ -136,11 +140,9 @@ body {
     /* margin-left: -320px; */
 }
 #sidebar.active {
-    margin: 0px 15px 0px 15px;
-    background-color: #F7F7F7;
-    border: 1px solid #C4C4C4;
-    border-radius: 0px 0px 5px 5px;
+    margin: 1rem 15px 0px 15px;
     opacity: 1;
+    background: transparent;
 }
 
 #sidebar.inactive {
@@ -158,19 +160,40 @@ body {
 }
 
 .sidebar-item {
-    width: 30%;
-    margin: 1.5rem 1rem 1.5rem 1rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #E0E3E7;
+    background: white;
+}
+
+#graphSelectionContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
 }
 
 .sidebar-body {
     width: 88%;
+    display: flex;
+    gap: 1rem;
     /* margin: 1.5rem 1rem 1.5rem 1rem; */
 }
 
 .sidebar-item-disconnect {
-    width: 80%;
-    margin: 1.5rem 1rem 1.5rem 1rem;
+    width: 100%;
+    margin: 1.5rem 0rem 1.5rem 0rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.sidebar-item-disconnect-buttons{
+    cursor: pointer;
 }
 
 .sidebar-item-disconnect-outer {
@@ -185,6 +208,20 @@ body {
 
 a[data-toggle="collapse"] {
     position: relative;
+}
+
+.Frame_Frame__3u6Bd{
+    background-color: transparent!important;
+}
+
+.Frame_FrameBody__38G8n{
+    background-color: white;
+}
+
+.Frame_FrameHeaderText__a7M-i{
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -229,11 +266,14 @@ a[data-toggle="collapse"] {
     overflow: auto;
     height:auto;
     display: flex;
+    width: 100%!important;
 }
 
 .editor-button-wrapper {
+    display: flex;
+    gap: 1rem;
     /* margin-left: -50px !important; */
-    height: 60px;
+    height: auto;
 }
 
 .show-eraser {
@@ -243,17 +283,25 @@ a[data-toggle="collapse"] {
 
 .hide-eraser {
     font-size: 1.5rem;
-    visibility:hidden
+    visibility:hidden;
+    display: none;
 }
 
 .input-style{
-    width: 97% !important;
+    width: 100% !important;
+}
+
+.input-bar{
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
 }
 
 /* code mirror style bug fix code */
 .CodeMirror-scroll {
-    margin-top: -25px;
-    padding-top: 25px;
+    margin: 0;
+    padding: 1rem;
+    padding-top: 0.25rem;
 }
 
 .CodeMirror-hscrollbar {
@@ -396,12 +444,16 @@ a[data-toggle="collapse"] {
         display: flex;
         width: 75%;
         margin: 0 auto;
+        gap: 1.5rem;
     }
 
     .sidebar-item-disconnect-buttons {
         margin-top: 2%;
     }
 
+    .sidebar-item{
+        margin-bottom: 0rem;
+    }
 }
 
 @media (max-width: 1190px) {
@@ -413,6 +465,20 @@ a[data-toggle="collapse"] {
 @media (max-width: 670px) {
     .legend-button-area {
         width: 35%;
+    }
+
+    .sidebar-home{
+        flex-direction: column;
+    }
+
+    .sidebar-item{
+        min-height: 15rem;
+    }
+
+    .sidebar-item-disconnect{
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
     }
 }
 
@@ -530,11 +596,29 @@ a.nav-link.active {
     overflow: initial !important;
 }
 
-.frame-head-button.selected {
-    color: #212121 !important;
+.frame-head-button{
+    outline: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white!important;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.frame-head-button:hover {
+.frame-head-button svg{
+    width: 0.85rem;
+}
+
+.frame-head-button.play{
+    background: #039037;
+    border: none;
+}
+
+.frame-head-button.selected {
     color: #212121 !important;
 }
 

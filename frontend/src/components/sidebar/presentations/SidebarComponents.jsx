@@ -95,7 +95,6 @@ const GraphSelectDropdown = ({
   currentGraph, graphs, changeCurrentGraph, changeGraphDB,
 }) => {
   const selectStyle = {
-    marginTop: '1rem',
     display: 'block',
   };
   const handleGraphClick = (_, e) => {
@@ -113,10 +112,9 @@ const GraphSelectDropdown = ({
       <Select onChange={handleGraphClick} placeholder="Select Graph" style={selectStyle} value={currentGraph}>
         {options}
       </Select>
-      <br />
-      <b>
-        Current Graph
-      </b>
+
+      <span>Current Graph</span>
+
     </Col>
   );
 };
