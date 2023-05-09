@@ -12,20 +12,19 @@ const BuilderSelection = ({ finder, setQuery, currentWord }) => {
   return (
     <ListGroup>
       {
-    finder?.getConnectedNames(currentWord).map(
-      (element) => (
-        <ListGroup.Item key={uuid()}>
-          <Button
-            size="small"
-            onClick={handleClick}
-            data-val={element}
-          >
-            {element}
-          </Button>
-        </ListGroup.Item>
-      ),
-    )
-    }
+        finder?.getConnectedNames(currentWord).map(
+          (element) => (
+            <Button
+              size="small"
+              onClick={handleClick}
+              data-val={element}
+              key={uuid()}
+            >
+              {element}
+            </Button>
+          ),
+        )
+      }
     </ListGroup>
   );
 };

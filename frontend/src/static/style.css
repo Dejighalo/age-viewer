@@ -127,6 +127,21 @@ body {
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
+
+.selection-builder button{
+    padding: .375rem .5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.selection-builder .list-group{
+    flex-direction: row;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+}
+
 #navbar {
     width: 100%sideba;
     background-color: var(--navbar-color);
